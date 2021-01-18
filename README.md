@@ -40,6 +40,10 @@ MBSwitch contains two different layers: thumbLayer and trackLayer. You can custo
 - thumbRadiusPadding (CGFloat)   ->  Padding of thumbLayer
 - thumbTintColor (UIColor)       ->  Background color of thumbLayer
 
+### Gradient Support
+
+MBSwitch support gradient for trackLayer and thumbLayer. You can add gradients via `applyGradient(to layer: MBSwitch.Layer, colors: [UIColor], direction: GradientDirection = .leftToRight)` method. You can set gradient direction, gradient colors and layer that will apply.
+
 ### Programmatically Initialize
 
 - Create a MBSwitch instance and add as a subview.
