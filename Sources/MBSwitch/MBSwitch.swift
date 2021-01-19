@@ -169,14 +169,17 @@ public class MBSwitch: UIControl {
         trackLayer.backgroundColor = trackBackgroundColor.cgColor
         trackLayer.borderWidth = trackBorderWidth
         layoutSublayers(of: layer)
-        sendActions(for: .valueChanged)
     }
     
     /// Sets initial status of MBSwitch
     /// - Parameter on: Initial state of MBSwitch
-    public func setOn(_ on: Bool) {
+    /// - Parameter actionable: sendActions can fire or not
+    public func setOn(_ on: Bool, actionable: Bool = true) {
         isOn = on
         layoutSublayers(of: layer)
+        if actionable {
+            sendActions(for: .valueChanged)
+        }
     }
     
     override open var intrinsicContentSize : CGSize {
@@ -185,7 +188,7 @@ public class MBSwitch: UIControl {
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        isOn.toggle()
+        setOn(!isOn)
     }
     
     public override func layoutSublayers(of layer: CALayer) {
