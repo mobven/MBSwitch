@@ -25,6 +25,10 @@ mbSwitch.addTarget(self, action: #selector(self.onSwitchChanged), for: .valueCha
     print(mbSwitch.isOn)
 }
 ```
+### Setting MBSwitch's State
+
+MBSwitch's state can change via `setOn(_ on: Bool, actionable: Bool = true)` function. The boolean `on` parameter set switch's state. The `actionable` parameter decide `sendActions(for: .valueChanged)` will fire or not. In some case we don't want to fire `sendActions(for: .valueChanged)` function. The `actionable` parameter defaultly true.
+
 ### Supported Attributes
 
 MBSwitch contains two different layers: thumbLayer and trackLayer. You can customize this layers via below attributes:
