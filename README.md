@@ -18,6 +18,7 @@ https://github.com/mobven/MBSwitch.git
 
 MBSwitch can be initialized and used either from storyboard or programmatically. Value changes of MBSwitch can be observed via `addTarget(self, action: #selector(func), for: .valueChanged)` function.
 
+
 ```swift
 mbSwitch.addTarget(self, action: #selector(self.onSwitchChanged), for: .valueChanged)
 
@@ -28,6 +29,7 @@ mbSwitch.addTarget(self, action: #selector(self.onSwitchChanged), for: .valueCha
 ### Setting MBSwitch's State
 
 MBSwitch's state can be changed via `setOn(_ on: Bool)` function. The boolean `on` parameter sets switch's state. Through `setOn(_ on: Bool)` function `sendActions(for: .valueChanged)` will be fired. In some case we don't want to fire `sendActions(for: .valueChanged)` so we can change the state of MBSwitch with `isOn` property without sending action. 
+
 
 ### Supported Attributes
 

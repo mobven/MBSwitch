@@ -26,8 +26,8 @@ public class MBSwitch: UIControl {
     /// Determines thumbLayer's cornerRadius is default value or decided by the developer
     private var defaultThumbCornerRadius: Bool = true
     
-    /// Switch's current state
-    @IBInspectable public private(set) var isOn: Bool = false {
+    /// Gets and sets Switch's state without sending action.
+    @IBInspectable public var isOn: Bool = false {
         didSet {
             self.valueChanged()
         }
@@ -171,15 +171,11 @@ public class MBSwitch: UIControl {
         layoutSublayers(of: layer)
     }
     
-    /// Sets initial status of MBSwitch
-    /// - Parameter on: Initial state of MBSwitch
-    /// - Parameter actionable: sendActions can fire or not
-    public func setOn(_ on: Bool, actionable: Bool = true) {
+    /// Sets states of MBSwitch and sends action for valueChanged event.
+    /// - Parameter on: MBSwitch's new state that set
+    public func setOn(_ on: Bool) {
         isOn = on
-        layoutSublayers(of: layer)
-        if actionable {
-            sendActions(for: .valueChanged)
-        }
+        sendActions(for: .valueChanged)
     }
     
     override open var intrinsicContentSize : CGSize {
