@@ -16,7 +16,7 @@ https://github.com/mobven/MBSwitch.git
 ```
 ## Usage
 
-MBSwitch can initialize from storyboard or programmatically. You can set properties programmatically or from stroyboard. Then you can listen every value changes of MBSwitch via `addTarget(self, action: #selector(func), for: .valueChanged)` method.
+MBSwitch can be initialized and used either from storyboard or programmatically. Value changes of MBSwitch can be observed via `addTarget(self, action: #selector(func), for: .valueChanged)` method.
 
 ```swift
 mbSwitch.addTarget(self, action: #selector(self.onSwitchChanged), for: .valueChanged)
@@ -25,6 +25,10 @@ mbSwitch.addTarget(self, action: #selector(self.onSwitchChanged), for: .valueCha
     print(mbSwitch.isOn)
 }
 ```
+### Setting MBSwitch's State
+
+MBSwitch's state can be changed via `setOn(_ on: Bool, actionable: Bool = true)` function. The boolean `on` parameter sets switch's state. The `actionable` parameter decides whether `sendActions(for: .valueChanged)` will be fired or not. In some case we don't want to fire `sendActions(for: .valueChanged)` function. The `actionable` parameter is true by default.
+
 ### Supported Attributes
 
 MBSwitch contains two different layers: thumbLayer and trackLayer. You can customize this layers via below attributes:
@@ -42,7 +46,7 @@ MBSwitch contains two different layers: thumbLayer and trackLayer. You can custo
 
 ### Gradient Support
 
-MBSwitch support gradient for trackLayer and thumbLayer. You can add gradients via `applyGradient(to layer: MBSwitch.Layer, colors: [UIColor], direction: GradientDirection = .leftToRight)` method. You can set gradient direction, gradient colors and layer that will apply.
+MBSwitch supports gradient for trackLayer and thumbLayer. You can add gradients via `applyGradient(to layer: MBSwitch.Layer, colors: [UIColor], direction: GradientDirection = .leftToRight)` method. You can set gradient direction, gradient colors and layer that will apply.
 
 ### Programmatically Initialize
 
@@ -56,8 +60,8 @@ MBSwitch support gradient for trackLayer and thumbLayer. You can add gradients v
 
 ### Storyboard Initialization
 
-- Create a view from storyboard.
-- Select view and set custom class in the identity inspector with `MBSwitch`.
+- Create a UIView in storyboard.
+- Select view and set custom class in the identity inspector to `MBSwitch`.
 - Can set @IBInspactable params in attribute inspector.
 - Create an outlet and set attributes for MBSwitch instance.
 
